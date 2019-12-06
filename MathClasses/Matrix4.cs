@@ -51,7 +51,7 @@ namespace MathClasses
 
         }
 
-        public static Matrix4 operator *(Matrix4 lhs, Matrix4 rhs)
+        public static Matrix4 operator *(Matrix4 rhs, Matrix4 lhs)
         {
             return new Matrix4(
         lhs.m11 * rhs.m11 + lhs.m12 * rhs.m21 + lhs.m13 * rhs.m31 + lhs.m14 * rhs.m41,
