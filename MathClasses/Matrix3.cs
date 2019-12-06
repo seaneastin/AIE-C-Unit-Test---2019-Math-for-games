@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MathClasses
 {
-    class Matrix3
+    public class Matrix3
     {
 
         public static Matrix3 identity = new Matrix3();
@@ -50,7 +50,7 @@ namespace MathClasses
 
         }
 
-        public static Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)
+        public static Matrix3 operator *(Matrix3 rhs, Matrix3 lhs)
         {
             return new Matrix3(
         lhs.m11 * rhs.m11 + lhs.m12 * rhs.m21 + lhs.m13 * rhs.m31,
@@ -74,9 +74,9 @@ namespace MathClasses
         public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
         {
             return new Vector3(
-                lhs.m11 * rhs.X + lhs.m12 * rhs.Y + lhs.m13 * rhs.Z,
-                lhs.m21 * rhs.X + lhs.m22 * rhs.Y + lhs.m23 * rhs.Z,
-                lhs.m31 * rhs.X + lhs.m32 * rhs.Y + lhs.m33 * rhs.Z);
+                lhs.m11 * rhs.x + lhs.m12 * rhs.y + lhs.m13 * rhs.z,
+                lhs.m21 * rhs.x + lhs.m22 * rhs.y + lhs.m23 * rhs.z,
+                lhs.m31 * rhs.x + lhs.m32 * rhs.y + lhs.m33 * rhs.z);
         }
 
 
@@ -89,15 +89,15 @@ namespace MathClasses
 
         public void SetScaled(Vector3 v)
         {
-            m11 = v.X; m12 = 0; m13 = 0;
-            m21 = 0; m22 = v.Y; m23 = 0;
-            m31 = 0; m32 = 0; m33 = v.Z;
+            m11 = v.x; m12 = 0; m13 = 0;
+            m21 = 0; m22 = v.y; m23 = 0;
+            m31 = 0; m32 = 0; m33 = v.z;
         }
 
         public void Scale(Vector3 v)
         {
             Matrix3 m = new Matrix3();
-            m.SetScaled(v.X, v.Y, v.Z);
+            m.SetScaled(v.x, v.y, v.z);
 
             Set(this * m);
         }
@@ -114,8 +114,8 @@ namespace MathClasses
         public void SetRotateX(double radians)
         {
             Set(1, 0, 0,
-                0, (float)Math.Cos(radians), (float)-Math.Sin(radians),
-                0, (float)Math.Sin(radians), (float)Math.Cos(radians));
+                0, (float)Math.Cos(radians), (float)Math.Sin(radians),
+                0, (float)-Math.Sin(radians), (float)Math.Cos(radians));
         }
 
         public void RotateX(double radians)
@@ -129,9 +129,9 @@ namespace MathClasses
 
         public void SetRotateY(double radians)
         {
-            Set((float)Math.Cos(radians), 0, (float)Math.Sin(radians),
+            Set((float)Math.Cos(radians), 0, (float)-Math.Sin(radians),
                 0, 1, 0,
-                (float)-Math.Sin(radians), 0, (float)Math.Cos(radians));
+                (float)Math.Sin(radians), 0, (float)Math.Cos(radians));
         }
 
         public void RotateY(double radians)
@@ -143,8 +143,8 @@ namespace MathClasses
 
         public void SetRotateZ(double radians)
         {
-            Set((float)Math.Cos(radians), (float)-Math.Sin(radians), 0,
-                (float)Math.Sin(radians), (float)Math.Cos(radians), 0,
+            Set((float)Math.Cos(radians), (float)Math.Sin(radians), 0,
+                (float)-Math.Sin(radians), (float)Math.Cos(radians), 0,
                 0, 0, 1);
         }
         public void RotateZ(double radians)
