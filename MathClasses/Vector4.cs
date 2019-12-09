@@ -49,17 +49,17 @@ namespace MathClasses
         }
         public static Vector4 operator *(float number, Vector4 rhs)
         {
-            return new Vector4(number * rhs.x, number * rhs.y, number * rhs.z, number + rhs.w);
+            return new Vector4(number * rhs.x, number * rhs.y, number * rhs.z, number * rhs.w);
         }
         public static Vector4 operator *(Vector4 lhs, float number)
         {
-            return new Vector4(lhs.x * number, lhs.y * number, lhs.z * number, lhs.w + number);
+            return new Vector4(lhs.x * number, lhs.y * number, lhs.z * number, lhs.w * number);
         }
 
 
         public float Magnitude()
         {
-            return (float)Math.Sqrt(x * x + y * y + z * z * w);
+            return (float)Math.Sqrt(x * x + y * y + z * z + w * w);
         }
 
         public float MagnitudeSqr()

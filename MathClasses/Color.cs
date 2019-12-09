@@ -10,9 +10,9 @@ namespace MathClasses
     {
         public UInt32 color;
 
-        public Color(int color, int color2, int color3, int color4)
+        public Color(byte r, byte g, byte b, byte a)
         {
-            color = 0;
+
         }
 
         public Color()
@@ -20,12 +20,12 @@ namespace MathClasses
             color = 0;
         }
 
-        public void SetRed(int color)
+        public void SetRed(byte r)
         {
 
         }
 
-        public void SetGreen(int color)
+        public void SetGreen(byte g)
         {
 
         }
@@ -52,12 +52,12 @@ namespace MathClasses
             return 1;
         }
 
-        public void SetAlpha(int color)
+        public void SetAlpha(byte a)
         {
 
         }
 
-        public void SetBlue(int color)
+        public void SetBlue(byte b)
         {
 
         }

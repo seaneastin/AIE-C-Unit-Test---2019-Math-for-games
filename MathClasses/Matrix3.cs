@@ -74,9 +74,9 @@ namespace MathClasses
         public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
         {
             return new Vector3(
-                lhs.m11 * rhs.x + lhs.m12 * rhs.y + lhs.m13 * rhs.z,
-                lhs.m21 * rhs.x + lhs.m22 * rhs.y + lhs.m23 * rhs.z,
-                lhs.m31 * rhs.x + lhs.m32 * rhs.y + lhs.m33 * rhs.z);
+                lhs.m11 * rhs.x + lhs.m21 * rhs.y + lhs.m31 * rhs.z,
+                lhs.m12 * rhs.x + lhs.m22 * rhs.y + lhs.m32 * rhs.z,
+                lhs.m13 * rhs.x + lhs.m23 * rhs.y + lhs.m33 * rhs.z);
         }
 
 
